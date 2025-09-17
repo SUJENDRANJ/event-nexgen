@@ -82,27 +82,6 @@
                     >
                   </h1>
                 </div>
-                <!-- <div class="-440">
-                  <p
-                    style="
-                      -webkit-transform: translate3d(0, 0.5em, 0)
-                        scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                        skew(0, 0);
-                      -moz-transform: translate3d(0, 0.5em, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      -ms-transform: translate3d(0, 0.5em, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      transform: translate3d(0, 0.5em, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      opacity: 0;
-                    "
-                    class="text-size-medium"
-                  >
-                    Whether you want to book a court, join a class, or inquire
-                    about personalized coaching, fill out the form and we’ll get
-                    back to you as soon as possible.
-                  </p>
-                </div> -->
 
                 <div class="margin-top-64">
                   <div
@@ -132,6 +111,7 @@
                         margin-top: 1rem !important;
                       }
                     </style>
+
                     <form
                       id="email-form"
                       name="email-form"
@@ -193,13 +173,21 @@
                             required
                           />
                         </div>
-                        <button
-                          type="button"
-                          class="button w-button"
-                          id="next-step-1"
+                        <div
+                          style="
+                            display: flex;
+                            justify-content: flex-end;
+                            margin-top: 15px;
+                          "
                         >
-                          Next
-                        </button>
+                          <button
+                            type="button"
+                            class="button w-button"
+                            id="next-step-1"
+                          >
+                            Next
+                          </button>
+                        </div>
                       </div>
 
                       <!-- Step 2: Category -->
@@ -210,6 +198,7 @@
                           >
                           <select
                             id="category"
+                            name="category"
                             class="form-input w-input"
                             required
                           >
@@ -219,13 +208,28 @@
                             <option value="girls">Girls</option>
                           </select>
                         </div>
-                        <button
-                          type="button"
-                          class="button w-button"
-                          id="next-step-2"
+                        <div
+                          style="
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 15px;
+                          "
                         >
-                          Next
-                        </button>
+                          <button
+                            type="button"
+                            class="button w-button"
+                            id="back-step-2"
+                          >
+                            Back
+                          </button>
+                          <button
+                            type="button"
+                            class="button w-button"
+                            id="next-step-2"
+                          >
+                            Next
+                          </button>
+                        </div>
                       </div>
 
                       <!-- Step 3: Game -->
@@ -234,7 +238,12 @@
                           <label for="game" class="field-label"
                             >Select Game</label
                           >
-                          <select id="game" class="form-input w-input" required>
+                          <select
+                            id="game"
+                            name="game"
+                            class="form-input w-input"
+                            required
+                          >
                             <option value="">Select Game</option>
                           </select>
                         </div>
@@ -252,204 +261,191 @@
                             required
                           />
                         </div>
-                        <div class="form-field-wrapper">
-                          <label for="screenshot" class="field-label"
-                            >Upload Payment Screenshot</label
+                        <div
+                          style="
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 15px;
+                          "
+                        >
+                          <button
+                            type="button"
+                            class="button w-button"
+                            id="back-step-3"
                           >
-                          <input
-                            type="file"
-                            id="screenshot"
-                            name="screenshot"
-                            accept="image/*"
-                            class="form-input w-input"
-                            required
-                          />
+                            Back
+                          </button>
+                          <button type="submit" class="button w-button">
+                            Submit
+                          </button>
                         </div>
-                        <button type="submit" class="button w-button">
-                          Submit
-                        </button>
                       </div>
 
                       <!-- Step 4: Thank You -->
                       <div class="form-step" id="step-4" style="display: none">
                         <h3>
-                          Thank you! Your registration has been submitted.
+                          ✅ Thank you! Your registration has been submitted.
                         </h3>
                       </div>
                     </form>
+
+                    <script
+                      type="text/javascript"
+                      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+                    ></script>
+
                     <script>
-                      const steps = document.querySelectorAll(".form-step");
-                      const nextStep1 = document.getElementById("next-step-1");
-                      const nextStep2 = document.getElementById("next-step-2");
-                      const categorySelect =
-                        document.getElementById("category");
-                      const gameSelect = document.getElementById("game");
-                      const gameInfoDiv = document.querySelector(".game-info");
+                      document.addEventListener(
+                        "DOMContentLoaded",
+                        function () {
+                          emailjs.init("6fMwvMrJAP3DDhzob");
 
-                      const gamesData = {
-                        "men-major": [
-                          {
-                            name: "Volleyball",
-                            // rules: "Knockout, 12 players, 3 sets of 25 pts",
-                            queries: "S. Asis Rishi: 9894750044",
-                            qr: "volleyball 3,5.jpg",
-                          },
-                          {
-                            name: "Football",
-                            // // rules: "16 players, 20-5-20 min, FIFA rules",
-                            queries: "Parvatha krishnan: +91 7010909097",
-                            qr: "football.jpg",
-                          },
-                          {
-                            name: "Cricket",
-                            // // rules: "15 players, ICC rules, Bowl Out if tie",
-                            queries: "Jeeva S: 9363003234",
-                            qr: "cricket men.jpg",
-                          },
-                          {
-                            name: "Basketball 5s",
-                            // rules:
-                            //   "12 players, 4 quarters, 10 min each, FIBA rules",
-                            queries: "Kisore: 6381070305",
-                            qr: "basket men.jpg",
-                          },
-                        ],
-                        "men-minor": [
-                          {
-                            name: "Chess",
-                            // rules: "Standard rules",
-                            queries: "Naveen Prakash: +91 8189895164",
-                            qr: "chess.png",
-                          },
-                          {
-                            name: "Carrom",
-                            // rules: "Standard rules",
-                            queries: "Ajmal: +91 9940782839",
-                            qr: "carrom.png",
-                          },
-                          {
-                            name: "Futsal",
-                            // rules: "8 players, 8-2-8, rolling sub, knockout",
-                            queries: "Atish: 8105933547",
-                            qr: "futful.jpg",
-                          },
-                          {
-                            name: "Basketball 3s",
-                            // // rules: "5 players, 2 halves 5 min, FIBA rules",
-                            queries: "Goutam: 9789781376",
-                            qr: "basket men.jpg",
-                          },
-                          {
-                            name: "Volleyball 3s",
-                            // rules: "Same as Volleyball 6s",
-                            queries: "S. Asis Rishi: 9894750044",
-                            qr: "volleyball 3,5.jpg",
-                          },
-                          {
-                            name: "Badminton",
-                            // // rules: "Standard rules",
-                            queries: "Sibibala & Suryaa",
-                            qr: "badmin men.jpg",
-                          },
-                        ],
-                        girls: [
-                          {
-                            name: "Basketball 3s",
-                            // // rules: "5 players, 2 halves 5 min, FIBA rules",
-                            queries: "Sruti: 7339197333",
-                            qr: "basket women.jpg",
-                          },
-                          {
-                            name: "Basketball 5s",
-                            // // rules: "12 players, 4 quarters 10 min, FIBA rules",
-                            queries: "Sruti: 7339197333",
-                            qr: "basket women.jpg",
-                          },
-                          {
-                            name: "Throwball",
-                            // // rules: "Standard rules",
-                            queries: "Vinothini M: 6380898324",
-                            qr: "throwball.jpg",
-                          },
-                          {
-                            name: "Badminton",
-                            // // rules: "Standard rules",
-                            queries: "Sibibala & Suryaa",
-                            qr: "badmin men.jpg",
-                          },
-                          {
-                            name: "Chess",
-                            // rules: "Standard rules",
-                            queries: "Naveen Prakash: +91 8189895164",
-                            qr: "chess.png",
-                          },
-                        ],
-                      };
+                          const steps = document.querySelectorAll(".form-step");
+                          const nextStep1 =
+                            document.getElementById("next-step-1");
+                          const nextStep2 =
+                            document.getElementById("next-step-2");
+                          const backStep2 =
+                            document.getElementById("back-step-2");
+                          const backStep3 =
+                            document.getElementById("back-step-3");
 
-                      // Step 1 → Step 2
-                      nextStep1.addEventListener("click", () => {
-                        steps[0].style.display = "none";
-                        steps[1].style.display = "block";
-                      });
+                          const categorySelect =
+                            document.getElementById("category");
+                          const gameSelect = document.getElementById("game");
+                          const gameInfoDiv =
+                            document.querySelector(".game-info");
 
-                      // Step 2 → Step 3
-                      nextStep2.addEventListener("click", () => {
-                        if (!categorySelect.value)
-                          return alert("Select category");
-
-                        // Populate games based on category
-                        gameSelect.innerHTML = `<option value="">Select Game</option>`;
-                        gamesData[categorySelect.value].forEach((game) => {
-                          const option = document.createElement("option");
-                          option.value = game.name;
-                          option.textContent = game.name;
-                          gameSelect.appendChild(option);
-                        });
-
-                        steps[1].style.display = "none";
-                        steps[2].style.display = "block";
-                      });
-
-                      // Show rules, queries, QR when a game is selected
-                      gameSelect.addEventListener("change", () => {
-                        const selectedGame = gamesData[
-                          categorySelect.value
-                        ].find((g) => g.name === gameSelect.value);
-                        if (selectedGame) {
-                          gameInfoDiv.innerHTML = `
-      <p><strong>Rules:</strong> ${selectedGame.rules}</p>
-      <p><strong>Queries:</strong> ${selectedGame.queries}</p>
-      <p><strong>Payment QR:</strong><br><img src="${selectedGame.qr}" alt="QR Code" style="max-width:150px"></p>
-    `;
-                        } else {
-                          gameInfoDiv.innerHTML = "";
-                        }
-                      });
-
-                      // Step 3 → Submission via Email.js
-                      document
-                        .getElementById("email-form")
-                        .addEventListener("submit", function (e) {
-                          e.preventDefault();
-
-                          emailjs
-                            .sendForm(
-                              "YOUR_SERVICE_ID",
-                              "YOUR_TEMPLATE_ID",
-                              this
-                            )
-                            .then(
-                              () => {
-                                steps[2].style.display = "none";
-                                steps[3].style.display = "block";
+                          const gamesData = {
+                            "men-major": [
+                              {
+                                name: "Volleyball",
+                                rules: "Knockout, 12 players, 3 sets of 25 pts",
+                                queries: "S. Asis Rishi: 9894750044",
+                                qr: "volleyball 3,5.jpg",
                               },
-                              (err) => {
-                                alert(
-                                  "Error sending form: " + JSON.stringify(err)
-                                );
+                              {
+                                name: "Football",
+                                rules: "16 players, 20-5-20 min, FIFA rules",
+                                queries: "Parvatha krishnan: +91 7010909097",
+                                qr: "football.jpg",
+                              },
+                            ],
+                            "men-minor": [
+                              {
+                                name: "Chess",
+                                rules: "Standard chess rules",
+                                queries: "Naveen Prakash: +91 8189895164",
+                                qr: "chess.png",
+                              },
+                            ],
+                            girls: [
+                              {
+                                name: "Basketball 3s",
+                                rules: "5 players, 2 halves 5 min, FIBA rules",
+                                queries: "Sruti: 7339197333",
+                                qr: "basket women.jpg",
+                              },
+                            ],
+                          };
+
+                          // Navigation buttons
+                          nextStep1.addEventListener("click", () => {
+                            steps[0].style.display = "none";
+                            steps[1].style.display = "block";
+                          });
+                          backStep2.addEventListener("click", () => {
+                            steps[1].style.display = "none";
+                            steps[0].style.display = "block";
+                          });
+                          nextStep2.addEventListener("click", () => {
+                            if (!categorySelect.value)
+                              return alert("Select category");
+                            gameSelect.innerHTML = `<option value="">Select Game</option>`;
+                            (gamesData[categorySelect.value] || []).forEach(
+                              (game) => {
+                                const option = document.createElement("option");
+                                option.value = game.name;
+                                option.textContent = game.name;
+                                gameSelect.appendChild(option);
                               }
                             );
-                        });
+                            steps[1].style.display = "none";
+                            steps[2].style.display = "block";
+                          });
+                          backStep3.addEventListener("click", () => {
+                            steps[2].style.display = "none";
+                            steps[1].style.display = "block";
+                          });
+
+                          // Show game info
+                          gameSelect.addEventListener("change", () => {
+                            const list = gamesData[categorySelect.value] || [];
+                            const selectedGame = list.find(
+                              (g) => g.name === gameSelect.value
+                            );
+                            if (selectedGame) {
+                              gameInfoDiv.innerHTML = `
+          <div style="background:#f8f8f8;padding:12px;border-radius:8px;">
+            <p><strong>Rules:</strong> ${selectedGame.rules}</p>
+            <p><strong>Queries:</strong> ${selectedGame.queries}</p>
+            <p><strong>Payment QR:</strong><br>
+              <img src="${selectedGame.qr}" style="max-width:100%;border-radius:6px">
+            </p>
+          </div>`;
+                            } else {
+                              gameInfoDiv.innerHTML = "";
+                            }
+                          });
+
+                          // Submit form via EmailJS
+                          document
+                            .getElementById("email-form")
+                            .addEventListener("submit", function (e) {
+                              e.preventDefault();
+                              emailjs
+                                .sendForm(
+                                  "service_568hg49",
+                                  "template_ifabofk",
+                                  this
+                                )
+                                .then(
+                                  (response) => {
+                                    console.log(
+                                      "SUCCESS!",
+                                      response.status,
+                                      response.text
+                                    );
+
+                                    // Show thank you
+                                    steps[2].style.display = "none";
+                                    steps[3].style.display = "block";
+
+                                    document.querySelector(
+                                      "#step-4"
+                                    ).style.display = "block";
+
+                                    alert("Submission Successfull.");
+                                    setTimeout(() => {
+                                      location.reload();
+                                    }, 1000);
+
+                                    // Reset form after thank you is visible
+                                    setTimeout(() => {
+                                      e.target.reset();
+                                      gameInfoDiv.innerHTML = "";
+                                    }, 66500); // give user time to see step 4
+                                  },
+                                  (error) => {
+                                    console.error("FAILED...", error);
+                                    alert(
+                                      "Error sending form. Please try again."
+                                    );
+                                  }
+                                );
+                            });
+                        }
+                      );
                     </script>
                   </div>
                 </div>
@@ -471,14 +467,13 @@
           padding: 10px 15px;
           border-radius: 5px;
           text-decoration: none;
-          font-weight: bold;
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
           z-index: 9999; /* Keep it on top */
           transition: background-color 0.3s;
         }
 
         #back-home-btn:hover {
-          background-color: #0056b3;
+          background-color: #ceff64;
         }
       </style>
     </div>
