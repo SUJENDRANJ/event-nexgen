@@ -91,7 +91,7 @@
                   class="nav_menu-link-wrap"
                   style="z-index: 9999999"
                 >
-                  <a href="/rules.html" class="nav_link w-inline-block"
+                  <a href="/rules.pdf" class="nav_link w-inline-block" download
                     ><div class="z-index-2">Download Rules</div>
                     <div class="link_line"></div
                   ></a>
@@ -806,14 +806,18 @@
               <div class="hide w-slider-nav"></div>
             </div>
           </div>
-          <a href="/rules.html" class="btn-download"> Download Rules </a>
+
+          <!-- download -->
+          <a href="/rules.pdf" id="rules-btn" class="btn-download" download
+            >Download Rules</a
+          >
 
           <style>
             .btn-download {
               display: flex;
               justify-content: center;
               padding: 12px 24px;
-              background: #ccff34; /* button color */
+              background: #ccff34;
               text-decoration: none;
               border-radius: 8px;
               transition: all 0.3s ease;
@@ -823,8 +827,8 @@
             }
 
             .btn-download:hover {
-              background: #c3fa1d; /* darker on hover */
-              transform: translateY(-2px); /* slight lift */
+              background: #c3fa1d;
+              transform: translateY(-2px);
               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             }
           </style>

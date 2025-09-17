@@ -334,7 +334,7 @@
                                 qr: "cricket men.jpg",
                               },
                               {
-                                name: "Basketball 5s",
+                                name: "Basketball",
                                 queries: "Kisore: 6381070305",
                                 qr: "basket men.jpg",
                               },
@@ -362,6 +362,7 @@
                                 queries: "Goutam: 9789781376",
                                 qr: "basket men.jpg",
                               },
+
                               {
                                 name: "Volleyball 3s",
                                 queries: "S. Asis Rishi: 9894750044",
@@ -374,7 +375,7 @@
                                 qr: "badmin men.jpg",
                               },
                             ],
-                            girls: [
+                            women: [
                               {
                                 name: "Basketball 3s",
                                 queries: "Sruti: 7339197333",
@@ -444,7 +445,6 @@
                             if (selectedGame) {
                               gameInfoDiv.innerHTML = `
           <div style="background:#f8f8f8;padding:12px;border-radius:8px;">
-            <p><strong>Rules:</strong> ${selectedGame.rules}</p>
             <p><strong>Queries:</strong> ${selectedGame.queries}</p>
             <p><strong>Payment QR:</strong><br>
               <img src="${selectedGame.qr}" style="max-width:100%;border-radius:6px">
