@@ -205,7 +205,7 @@
                             <option value="">Select Category</option>
                             <option value="men-major">Men (Major)</option>
                             <option value="men-minor">Men (Minor)</option>
-                            <option value="girls">Girls</option>
+                            <option value="women">Women</option>
                           </select>
                         </div>
                         <div
@@ -298,7 +298,7 @@
                       document.addEventListener(
                         "DOMContentLoaded",
                         function () {
-                          emailjs.init("6fMwvMrJAP3DDhzob");
+                          emailjs.init("EI9rz5M29749SpFtn");
 
                           const steps = document.querySelectorAll(".form-step");
                           const nextStep1 =
@@ -320,31 +320,88 @@
                             "men-major": [
                               {
                                 name: "Volleyball",
-                                rules: "Knockout, 12 players, 3 sets of 25 pts",
                                 queries: "S. Asis Rishi: 9894750044",
                                 qr: "volleyball 3,5.jpg",
                               },
                               {
                                 name: "Football",
-                                rules: "16 players, 20-5-20 min, FIFA rules",
-                                queries: "Parvatha krishnan: +91 7010909097",
+                                queries: "Parvatha krishnan: +91 7010909097",
                                 qr: "football.jpg",
+                              },
+                              {
+                                name: "Cricket",
+                                queries: "Jeeva S: 9363003234",
+                                qr: "cricket men.jpg",
+                              },
+                              {
+                                name: "Basketball 5s",
+                                queries: "Kisore: 6381070305",
+                                qr: "basket men.jpg",
                               },
                             ],
                             "men-minor": [
                               {
                                 name: "Chess",
-                                rules: "Standard chess rules",
+
                                 queries: "Naveen Prakash: +91 8189895164",
                                 qr: "chess.png",
+                              },
+                              {
+                                name: "Carrom",
+
+                                queries: "Ajmal: +91 9940782839",
+                                qr: "carrom.png",
+                              },
+                              {
+                                name: "Futsal",
+                                queries: "Atish: 8105933547",
+                                qr: "futful.jpg",
+                              },
+                              {
+                                name: "Basketball 3s",
+                                queries: "Goutam: 9789781376",
+                                qr: "basket men.jpg",
+                              },
+                              {
+                                name: "Volleyball 3s",
+                                queries: "S. Asis Rishi: 9894750044",
+                                qr: "volleyball 3,5.jpg",
+                              },
+                              {
+                                name: "Badminton",
+
+                                queries: "Sibibala & Suryaa",
+                                qr: "badmin men.jpg",
                               },
                             ],
                             girls: [
                               {
                                 name: "Basketball 3s",
-                                rules: "5 players, 2 halves 5 min, FIBA rules",
                                 queries: "Sruti: 7339197333",
                                 qr: "basket women.jpg",
+                              },
+                              {
+                                name: "Basketball 5s",
+                                queries: "Sruti: 7339197333",
+                                qr: "basket women.jpg",
+                              },
+                              {
+                                name: "Throwball",
+
+                                queries: "Vinothini M: 6380898324",
+                                qr: "throwball.jpg",
+                              },
+                              {
+                                name: "Badminton",
+
+                                queries: "Sibibala & Suryaa",
+                                qr: "badmin men.jpg",
+                              },
+                              {
+                                name: "Chess",
+
+                                queries: "Naveen Prakash: +91 8189895164",
+                                qr: "chess.png",
                               },
                             ],
                           };
@@ -405,8 +462,8 @@
                               e.preventDefault();
                               emailjs
                                 .sendForm(
-                                  "service_568hg49",
-                                  "template_ifabofk",
+                                  "service_n8ksier",
+                                  "template_5c82jx3",
                                   this
                                 )
                                 .then(
