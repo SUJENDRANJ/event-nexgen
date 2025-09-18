@@ -203,8 +203,7 @@
                             required
                           >
                             <option value="">Select Category</option>
-                            <option value="men-major">Men (Major)</option>
-                            <option value="men-minor">Men (Minor)</option>
+                            <option value="men">Men</option>
                             <option value="women">Women</option>
                           </select>
                         </div>
@@ -317,92 +316,128 @@
                             document.querySelector(".game-info");
 
                           const gamesData = {
-                            "men-major": [
+                            men: [
                               {
-                                name: "Volleyball",
-                                queries: "S. Asis Rishi: 9894750044",
+                                name: "Volleyball (6s)",
+                                queries:
+                                  "S. Asis Rishi: 9894750044, K.A. Nagulan: 7506831139",
+                                amount: "₹1500/team",
                                 qr: "volleyball 3,5.jpg",
                               },
                               {
-                                name: "Football",
-                                queries: "Parvatha krishnan: +91 7010909097",
+                                name: "Volleyball (3s)",
+                                queries:
+                                  "S. Asis Rishi: 9894750044, K.A. Nagulan: 7506831139",
+                                amount: "₹500/team",
+                                qr: "volleyball 3,5.jpg",
+                              },
+                              {
+                                name: "Football (Futsal - 11s)",
+                                queries:
+                                  "Asadh: 8754019788, Parvatha Krishnan: 7010909097",
+                                amount: "₹2800/team",
                                 qr: "football.jpg",
                               },
                               {
+                                name: "Futsal (5s)",
+                                queries:
+                                  "Atish: 8105933547, Naveen Prakash: 8189895164",
+                                amount: "₹800/team",
+                                qr: "futful.jpg",
+                              },
+                              {
                                 name: "Cricket",
-                                queries: "Jeeva S: 9363003234",
+                                queries:
+                                  "Jeeva S: 9363003234, Rishibala A.S: 9865084869, Kavin V: 7550138802",
+                                amount: "₹2800/team",
                                 qr: "cricket men.jpg",
                               },
                               {
-                                name: "Basketball",
-                                queries: "Kisore: 6381070305",
+                                name: "Basketball (5s)",
+                                queries:
+                                  "Kisore: 6381070305, Neethiyarasan: 7418453193",
+                                amount: "₹2000/team",
                                 qr: "basket men.jpg",
                               },
-                            ],
-                            "men-minor": [
+                              {
+                                name: "Basketball (3s)",
+                                queries:
+                                  "Goutam: 9789781376, Abiprathosh: 9080412498",
+                                amount: "₹350/team",
+                                qr: "basket men.jpg",
+                              },
                               {
                                 name: "Chess",
-
-                                queries: "Naveen Prakash: +91 8189895164",
+                                queries: "Naveen Prakash: 8189895164",
+                                amount: "₹200",
                                 qr: "chess.png",
                               },
                               {
                                 name: "Carrom",
-
-                                queries: "Ajmal: +91 9940782839",
+                                queries: "Ajmal: 9940782839",
+                                amount: "₹300/team",
                                 qr: "carrom.png",
                               },
                               {
-                                name: "Futsal",
-                                queries: "Atish: 8105933547",
-                                qr: "futful.jpg",
-                              },
-                              {
-                                name: "Basketball 3s",
-                                queries: "Goutam: 9789781376",
-                                qr: "basket men.jpg",
-                              },
-
-                              {
-                                name: "Volleyball 3s",
-                                queries: "S. Asis Rishi: 9894750044",
-                                qr: "volleyball 3,5.jpg",
-                              },
-                              {
                                 name: "Badminton",
-
-                                queries: "Sibibala & Suryaa",
+                                amount: "Men - ₹550/team",
+                                queries:
+                                  "Srijith: 9025285601, Sibibala: 8925530577, Indhuja: 9952844644",
+                                qr: "badmin men.jpg",
+                              },
+                              {
+                                name: "Badminton (Mixed doubles)",
+                                amount: "Mixed doubles - ₹250/team",
+                                queries:
+                                  "Srijith: 9025285601, Sibibala: 8925530577, Indhuja: 9952844644",
                                 qr: "badmin men.jpg",
                               },
                             ],
                             women: [
                               {
-                                name: "Basketball 3s",
+                                name: "Basketball (3s)",
                                 queries: "Sruti: 7339197333",
+                                amount: "₹350/team",
                                 qr: "basket women.jpg",
                               },
                               {
-                                name: "Basketball 5s",
+                                name: "Basketball (5s)",
                                 queries: "Sruti: 7339197333",
+                                amount: "₹2000/team",
                                 qr: "basket women.jpg",
                               },
                               {
                                 name: "Throwball",
-
-                                queries: "Vinothini M: 6380898324",
+                                queries:
+                                  "Vinothini M: 6380898324, Maragatham A N V: 9843893411",
+                                amount: "₹1500/team",
                                 qr: "throwball.jpg",
                               },
                               {
                                 name: "Badminton",
-
-                                queries: "Sibibala & Suryaa",
+                                amount: "Women - ₹350/team",
+                                queries:
+                                  "Srijith: 9025285601, Sibibala: 8925530577, Indhuja: 9952844644",
+                                qr: "badmin men.jpg",
+                              },
+                              {
+                                name: "Badminton (Mixed doubles)",
+                                amount: "Mixed doubles - ₹250/team",
+                                queries:
+                                  "Srijith: 9025285601, Sibibala: 8925530577, Indhuja: 9952844644",
                                 qr: "badmin men.jpg",
                               },
                               {
                                 name: "Chess",
-
-                                queries: "Naveen Prakash: +91 8189895164",
+                                queries: "Naveen Prakash: 8189895164",
+                                amount: "₹200",
                                 qr: "chess.png",
+                              },
+                              {
+                                name: "Carrom",
+                                queries: "Ajmal: 9940782839",
+                                amount: "₹300/team",
+                                qr: "carrom.png",
                               },
                             ],
                           };
@@ -445,7 +480,9 @@
                             if (selectedGame) {
                               gameInfoDiv.innerHTML = `
           <div style="background:#f8f8f8;padding:12px;border-radius:8px;">
+            <p style="font-style:bold"><strong>Registration Fee:</strong> ${selectedGame.amount}</p>
             <p><strong>Queries:</strong> ${selectedGame.queries}</p>
+
             <p><strong>Payment QR:</strong><br>
               <img src="${selectedGame.qr}" style="max-width:100%;border-radius:6px">
             </p>
