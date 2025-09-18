@@ -174,6 +174,10 @@
                             required
                           />
                         </div>
+                        <p style="color: red; margin: 10px; display: none">
+                          Please Fill all required fields
+                        </p>
+
                         <div
                           style="
                             display: flex;
@@ -381,14 +385,14 @@
                               {
                                 name: "Volleyball (6s)",
                                 queries:
-                                  "S. Asis Rishi: 9894750044, K.A. Nagulan: 7506831139",
+                                  "S. Asis Rishi: 9894750044, K.A. Nagulan: 7806831139",
                                 amount: "₹1500/team",
                                 qr: "volleyball 3,5.jpg",
                               },
                               {
                                 name: "Volleyball (3s)",
                                 queries:
-                                  "S. Asis Rishi: 9894750044, K.A. Nagulan: 7506831139",
+                                  "S. Asis Rishi: 9894750044, K.A. Nagulan: 7806831139",
                                 amount: "₹500/team",
                                 qr: "volleyball 3,5.jpg",
                               },
@@ -503,11 +507,45 @@
                             ],
                           };
 
+                          const nameInput =
+                            document.getElementById("first_name");
+                          const clgInput =
+                            document.getElementById("college_name");
+                          const emailInput = document.getElementById("email");
+                          const phoneInput = document.getElementById("phone");
+
+                          // Error message
+                          const errorMsg = document.querySelector("#step-1 p");
+
                           // Navigation buttons
+                          // Email validation function
+                          function isValidEmail(email) {
+                            // Simple regex for basic email format
+                            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            return re.test(email);
+                          }
+
                           nextStep1.addEventListener("click", () => {
-                            steps[0].style.display = "none";
-                            steps[1].style.display = "block";
+                            const name = nameInput.value.trim();
+                            const clg = clgInput.value.trim();
+                            const email = emailInput.value.trim();
+                            const phone = phoneInput.value.trim();
+
+                            if (!name || !clg || !email || !phone) {
+                              errorMsg.textContent =
+                                "Please fill all required fields";
+                              errorMsg.style.display = "block";
+                            } else if (!isValidEmail(email)) {
+                              errorMsg.textContent =
+                                "Please enter a valid email address";
+                              errorMsg.style.display = "block";
+                            } else {
+                              errorMsg.style.display = "none";
+                              steps[0].style.display = "none";
+                              steps[1].style.display = "block";
+                            }
                           });
+
                           backStep2.addEventListener("click", () => {
                             steps[1].style.display = "none";
                             steps[0].style.display = "block";
