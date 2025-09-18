@@ -384,7 +384,7 @@
                                 name: "Badminton",
                                 amount: "Men - ₹550/team",
                                 queries:
-                                  "Srijith: 9025285601, Sibibala: 8925530577, Indhuja: 9952844644",
+                                  "Srijith: 9025285601, Sibibala: 8925530577",
                                 qr: "badmin men.jpg",
                               },
                               {
@@ -418,7 +418,7 @@
                                 name: "Badminton",
                                 amount: "Women - ₹350/team",
                                 queries:
-                                  "Srijith: 9025285601, Sibibala: 8925530577, Indhuja: 9952844644",
+                                  "Sibibala: 8925530577, Indhuja: 9952844644",
                                 qr: "badmin men.jpg",
                               },
                               {
@@ -480,14 +480,14 @@
                             );
                             if (selectedGame) {
                               gameInfoDiv.innerHTML = `
-          <div style="background:#f8f8f8;padding:12px;border-radius:8px;">
-            <p style="font-style:bold"><strong>Registration Fee:</strong> ${selectedGame.amount}</p>
-            <p><strong>Queries:</strong> ${selectedGame.queries}</p>
+                      <div style="background:#f8f8f8;padding:12px;border-radius:8px;">
+                        <p style="font-style:bold"><strong>Registration Fee:</strong> ${selectedGame.amount}</p>
+                        <p><strong>Queries:</strong> ${selectedGame.queries}</p>
 
-            <p><strong>Payment QR:</strong><br>
-              <img src="${selectedGame.qr}" style="max-width:100%;border-radius:6px">
-            </p>
-          </div>`;
+                        <p><strong>Payment QR:</strong><br>
+                          <img src="${selectedGame.qr}" style="max-width:100%;border-radius:6px">
+                        </p>
+                      </div>`;
                             } else {
                               gameInfoDiv.innerHTML = "";
                             }
